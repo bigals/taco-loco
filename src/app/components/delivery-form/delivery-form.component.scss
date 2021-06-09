@@ -1,0 +1,33 @@
+@import "../../../styles.scss";
+
+.actions {
+  display: flex;
+  margin-top: 15px;
+
+  button {
+    margin-left: 10px;
+  }
+  button:first-child {
+    margin-left: 0px;
+  }
+}
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+
+  label {
+    margin-top: 10px;
+  }
+
+  input {
+    padding: 8px;
+    line-height: 14px;
+    border-radius: 6px;
+    border-color: rgba(120, 120, 120, 0.8);
+  }
+
+  @media only screen and (min-width: $desktopScreenWidth) {
+    padding-right: 50vw;
+  }
+}

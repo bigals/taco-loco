@@ -1,0 +1,18 @@
+<taco-loco-header [breadcrumbs]="breadcrumbs"></taco-loco-header>
+<div class="content-container">
+  <ng-container *ngIf="delivery$ | async as delivery; else loading">
+    <ng-container *ngIf="!isUnRecognizedId; else badID">
+      <taco-loco-delivery-form
+        [delivery]="delivery"
+        (onFormSubmit)="handleFormSubmission($event)"
+      ></taco-loco-delivery-form>
+    </ng-container>
+  </ng-container>
+  <ng-template #loading><taco-loco-loader></taco-loco-loader></ng-template>
+  <ng-template #badID
+    ><div class="load-error">
+      There was an error loading your delivery. Refresh to try again, contact
+      support if the issue persists
+    </div></ng-template
+  >
+</div>

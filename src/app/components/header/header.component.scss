@@ -1,0 +1,65 @@
+//Mobile first design, minimal changes to a 600px breakpoint window width considered "desktop" display
+@import "../../../styles.scss";
+.fas.fa-chevron-right {
+  transform: scale(0.8);
+}
+
+.breadcrumb-title {
+  margin-left: 20px;
+
+  a {
+    margin: 25px 10px 25px 10px;
+    display: inline-block;
+    text-decoration: none;
+    color: whitesmoke;
+
+    &.has-link:hover {
+      text-decoration: hover;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  a:not(.has-link) {
+    cursor: default;
+  }
+}
+
+.header {
+  background-color: rgb(125, 24, 212);
+  color: rgb(240, 240, 240);
+  filter: drop-shadow(0 6px 6px rgba(120, 120, 120));
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  z-index: 2;
+
+  input {
+    border-radius: 14px;
+    padding: 10px;
+    margin: auto;
+  }
+
+  button {
+    margin: 20px auto;
+  }
+
+  @media only screen and (min-width: $desktopScreenWidth) {
+    flex-flow: row nowrap;
+
+    h2 {
+      text-align: left;
+    }
+
+    input {
+      margin: auto 10px auto auto;
+    }
+
+    button {
+      margin: auto 20px auto 0px;
+
+      &.pull-left {
+        margin-left: auto;
+      }
+    }
+  }
+}

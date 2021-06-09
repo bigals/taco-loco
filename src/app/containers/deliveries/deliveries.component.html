@@ -1,0 +1,41 @@
+<taco-loco-header
+  [breadcrumbs]="breadcrumbs"
+  [wantsFilter]="true"
+  [wantsNewBtn]="true"
+  [initialFilter]="filterVal"
+  (filterChange)="filterDeliveryList($event)"
+></taco-loco-header>
+
+<div class="content-container">
+  <ul>
+    <ng-container *ngIf="deliveries$ | async as deliveries; else loader">
+      <ng-container *ngIf="deliveries.length > 0; else noDeliveries">
+        <li *ngFor="let delivery of deliveries" routerLink="{{ delivery.id }}">
+          <taco-loco-delivery-card
+            [delivery]="delivery"
+            (onDelete)="handleDeleteDelivery($event)"
+          ></taco-loco-delivery-card>
+        </li>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #noDeliveries>
+      <div class="no-deliveries">
+        <p>No Deliveries Found!</p>
+        <p *ngIf="filterVal">
+          Try clearing your filter, there may be more deliveries,
+        </p>
+        <p>
+          {{
+            filterVal
+              ? "OR refresh to check for new ones with that filter,"
+              : "Refresh to check for new deliveries, "
+          }}
+        </p>
+        <p>OR add a new one yourself!</p>
+      </div>
+    </ng-template>
+
+    <ng-template #loader> <taco-loco-loader></taco-loco-loader></ng-template>
+  </ul>
+</div>

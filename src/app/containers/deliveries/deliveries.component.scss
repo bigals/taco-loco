@@ -1,0 +1,14 @@
+ul {
+  list-style: none;
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 40vw;
+  margin: 30px auto;
+  padding: 0px;
+  background-color: transparent;
+}
+
+.no-deliveries {
+  margin: auto;
+  text-align: center;
+}

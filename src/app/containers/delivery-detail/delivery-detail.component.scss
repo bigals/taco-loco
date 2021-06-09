@@ -1,0 +1,20 @@
+.indented {
+  margin: 10px auto 20px 20px;
+}
+
+.actions {
+  display: flex;
+  margin-top: 15px;
+
+  button {
+    margin-left: 10px;
+  }
+  button:first-child {
+    margin-left: 0px;
+  }
+
+  .danger {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.8);
+  }
+}

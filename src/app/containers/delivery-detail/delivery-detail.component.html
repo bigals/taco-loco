@@ -1,0 +1,38 @@
+<taco-loco-header
+  [breadcrumbs]="breadcrumbs"
+  [wantsNewBtn]="true"
+></taco-loco-header>
+<div class="content-container">
+  <ng-container *ngIf="delivery$ | async as delivery; else loading">
+    <ng-container *ngIf="delivery.id && delivery.address; else loadError">
+      <div>Customer Name:</div>
+      <div class="indented">{{ delivery.customer }}</div>
+      <div>Customer Address:</div>
+      <div class="indented">{{ delivery.address }}</div>
+
+      <div class="actions">
+        <button
+          class="default-btn"
+          [routerLink]="['/deliveries', 'edit', delivery?.id]"
+        >
+          Edit Delivery
+        </button>
+        <button
+          class="default-btn danger"
+          (click)="handleDeleteDelivery(delivery?.id)"
+        >
+          Delete Delivery
+        </button>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loading><taco-loco-loader></taco-loco-loader></ng-template>
+
+  <ng-template #loadError
+    ><div class="load-error">
+      There was an error loading your delivery. Refresh to try again, contact
+      support if the issue persists
+    </div></ng-template
+  >
+</div>

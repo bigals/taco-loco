@@ -1,0 +1,13 @@
+<div class="info">
+  <div class="customer">{{ delivery?.customer }}</div>
+  <div class="address">{{ delivery?.address }}</div>
+</div>
+
+<div class="actions">
+  <button class="icon-btn" [routerLink]="['edit', delivery?.id]">
+    <i class="far fa-edit"></i>
+  </button>
+  <button class="icon-btn" (click)="emitDeleteEvent($event, delivery?.id)">
+    <i class="fas fa-trash"></i>
+  </button>
+</div>
